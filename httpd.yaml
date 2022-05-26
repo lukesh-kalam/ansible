@@ -1,5 +1,5 @@
 ---  
-- name : Uninstalling httpd service
+- name : Installing httpd service
   hosts : webservers
   become : yes
   connection : ssh
