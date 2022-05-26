@@ -1,0 +1,11 @@
+---  
+- name : Her we are using vault concept
+  hosts : all
+  become : true
+  connection : ssh
+  user : ansible
+  tasks :
+    - name : I am installing doceker package 
+      yum :
+        name : java
+        state : present

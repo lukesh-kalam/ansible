@@ -1,0 +1,10 @@
+---  
+- name : Uninstalling httpd service
+  hosts : webservers
+  become : yes
+  connection : ssh
+  tasks : 
+    - name : Uninstalling httpd server
+      yum :
+        name : httpd
+        state : present

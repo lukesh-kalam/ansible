@@ -1,0 +1,35 @@
+---  
+- name : I am downloading tomcat server and will install
+  hosts : all
+  name : ansible
+  become : true
+  connection : ssh
+
+  tasks :
+    - name : Installing java on redhat systems
+      yum :
+        name : java 
+        state : present
+      when : ansible_os_family == "RedHat"
+
+    - name : Downloading Tomcat Software
+      get_url :
+        url : https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.78.tar.gz
+        dest : /opt
+
+    - name : Extracting tomcat server
+      unarchive :
+        src : /opt/apache-tomcat-8.5.78.tar.gz
+        dest : /opt
+        mode : 0777
+        remote_src : yes  # To check thesoftware is existing or not
+
+    - name : Providing executable permissions
+      file :
+        path : /opt/apache-tomcat-8.5.78/bin/startup.sh
+        mode : 0777
+
+    - name : start Tomcat server
+      shell : nohup ./startup.sh
+      args : 
+        chdir : /opt/apache-tomcat-8.5.78/bin 

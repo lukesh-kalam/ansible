@@ -1,0 +1,12 @@
+---  # Capying files in this directoyr
+- name : I am copying files from her to other host servers
+  hosts : all
+  user : ansible
+  become : yes
+  connection : ssh
+  tasks :
+    - name : Copying a file 
+      copy :
+        src : /home/ansible/yaml_scripts
+        dest : /home/ansible/yaml_scripts
+        owner : ansible

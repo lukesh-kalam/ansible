@@ -1,0 +1,14 @@
+--- # Creating users usning
+- name : Creating users unsing vars
+  hosts : all 
+  become : ansible
+  become : yes
+  connection : ssh
+  vars :
+    username : kalam
+    user_password : kalam
+  tasks :
+    - name : I am creating user {{username}}
+      user :
+        name : '{{username}}'
+        password : '{{user_password}}'

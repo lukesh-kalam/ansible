@@ -1,0 +1,4 @@
+- name : Installing Httpd software
+  yum :
+    pkg : httpd
+    state : present

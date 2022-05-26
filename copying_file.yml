@@ -1,0 +1,12 @@
+---  # Copying a html Files
+- name : This script is to copy a html file
+  hosts : all
+  user : ansible
+  become : yes
+  connection : ssh
+  tasks : 
+    - name : Caopying a index.html file to host machines
+      copy : # module name is copy
+        src : /home/ansible/yaml_scripts/index.html
+        dest : /home/ansible
+

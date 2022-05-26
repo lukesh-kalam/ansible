@@ -1,0 +1,11 @@
+---   # Creating User 
+- name : Creating User in servers
+  hosts : webservers
+  user  : ansible 
+  become : yes
+  tasks : 
+    - name : User Creation
+      user : name=raju password=raju
+
+    - name : New User Rani Creation
+      action : name=rani password=rani

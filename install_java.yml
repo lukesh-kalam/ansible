@@ -1,0 +1,11 @@
+--- # Installing Java here 
+- name : I am installing Java here
+  hosts : all
+  name : ansible
+  become : yes
+  connection : ssh
+  tasks :
+    - name : I am removing java here
+      yum : 
+       name : java
+       state : present  

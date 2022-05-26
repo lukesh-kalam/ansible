@@ -1,0 +1,30 @@
+--- # INstalling software
+
+- name : Installing some software 
+  hosts : webservers
+  user : ansible
+  become : yes
+
+  tasks :
+    - name : Installing httpd on RedHat
+      yum :
+        name : httpd
+        state : present
+      when : ansible_os_family == "RedHat"
+      notify : Starting Service on RedHat
+
+  handlers :
+    - name : Starting Service on RedHat
+      service :
+        name : httpd
+        state : started
+          # when : ansible_os_family == "RedHat"
+  
+
+  tasks : 
+    - name : Installing git on RedHat
+      yum : 
+       name : git
+       state : present
+      when : ansible_os_family == "RedHat"
+

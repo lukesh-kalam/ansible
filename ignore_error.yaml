@@ -1,0 +1,10 @@
+--- # Trying error silent 
+- hosts : webservers
+  user : ansible
+  become : yes
+  connection : ssh
+  tasks : 
+
+
+    -name : Installing Httpd
+     action : yum pkg=httpd state=installed 

@@ -1,0 +1,14 @@
+--- #Deleting Directory
+- name : Here I am  deleting directory
+  hosts : all
+  user : ansible
+  connection : ssh
+  tasks : 
+    - name : I am creating Directory
+      file :
+        path : /home/ansible/lukeshdir
+        state : directory
+    - name : I am deleting Directory 
+      file : 
+        path : /home/ansible/lukeshdir
+        state : absent

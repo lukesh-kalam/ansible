@@ -1,0 +1,10 @@
+--- #Directory Creation
+- hosts : webservers 
+  user : ansible 
+  become : yes
+  connection : ssh
+  tasks :
+   - name : Creating New Directory 
+     file :
+       path : /home/ansible/ansible_scripts
+       state : directory

@@ -1,0 +1,14 @@
+--- 
+
+- name : Taking Inputs from other file 
+  hosts : all
+  user : ansible
+  become : yes
+  connection : ssh
+  vars_files :
+    - users_file.yml
+
+  tasks :
+    - name : Creating User {{user1}}
+      user :
+        name : '{{user1}}'

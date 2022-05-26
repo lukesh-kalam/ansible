@@ -1,0 +1,16 @@
+---  # Using Loops concept for installing 
+
+- hosts : webservers
+  user : ansible
+  become : true
+  connection : ssh
+
+  tasks :
+
+    - name : installing multiple softwares using loops
+      yum :
+        name : '{{item}}'
+        state : present
+      with_items :
+          - git
+          - java

@@ -1,0 +1,13 @@
+---  # Installing
+- hosts : webservers
+  user  : ansible
+  become : yes
+  connection : ssh
+  tasks :
+    - name : Removing git
+      action : yum pkg=git state=installed
+    - name : INstalling Python 
+      action : yum pkg=pthon state=installed
+       #   ignore_errors : yes
+    - name : Installing links package
+      action : yum pkg=links state=installed 

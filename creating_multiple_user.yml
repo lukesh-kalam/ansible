@@ -1,0 +1,16 @@
+---  # Creating Multiple users at a single time 
+
+- name : I am Creating multiple user at one time
+  hosts : webservers
+  user : ansible
+  become : yes
+
+  tasks :
+    - name :  I am creating multiple users with passwords 
+      user :
+        name : '{{item}}'
+        state : absent
+      with_items :
+          - raju
+          - rahul
+          - ramu

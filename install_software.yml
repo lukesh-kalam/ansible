@@ -1,0 +1,11 @@
+--- # Installing Docker Software 
+- name : Here I am installing software
+  hosts : all
+  user : ansible
+  become : yes
+  connection : ssh
+  tasks :
+    - name : I am installing Docker Software
+      yum :
+        name : docker
+        state : present # or installed

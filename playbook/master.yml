@@ -1,0 +1,9 @@
+---  
+- name : INstalling httpd
+  hosts : all
+  user : ansible
+  connection : ssh
+  become : yes
+  roles :
+    - testrole
+     

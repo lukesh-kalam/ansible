@@ -1,0 +1,14 @@
+--- # INstalling multiple software in one go
+
+- name : Installing multiple softwares
+  hosts : webservers
+  user : ansible
+  become : true
+  connection : ssh
+
+  tasks :
+    - name : INstalling more Packages
+      yum :
+        name : ["git","python","mysql","docker","java"]
+        state : present
+

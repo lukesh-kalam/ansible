@@ -1,0 +1,15 @@
+--- # Using Conditional 
+- name : Installing http services
+  hosts : webservers
+  user : ansible 
+  connection : ssh
+  become : yes
+  
+  tasks :
+    - name : INstalling apache on Debian 
+      command : apt-get install apache2 -y
+      when : ansible_os_family == "Debian"
+
+    - name : Installing HTTPD on Redhat 
+      command : yum install httpd -y
+      when : ansible_os_family == "Amazon Linux"

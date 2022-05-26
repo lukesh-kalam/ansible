@@ -1,0 +1,9 @@
+--- 
+- name : Executimg python script
+  hosts : webservers[0]
+  user : ansible
+  connection : ssh
+
+  tasks :
+    - name : Exec python
+      command : python 1.py
